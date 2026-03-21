@@ -1,6 +1,9 @@
 # reto-semana-02
 Repositorio para la segunda tarea de la semana 2 en Programación para la Ciencia de Datos.
 
+# Descripción
+Este programa lee un archivo de datos desde la entrada estándar convirtiendo las temperaturas Farenheit a Celsius si es necesario e imprime la ciudad en la que está, la temperatura en Celsius y una clasificación dependiendo de la temperatura que se haya calculado.
+
 ¿Cómo Ejecutar el Programa?
 Desde un Archivo
 # Windows (PowerShell)
@@ -23,3 +26,6 @@ Entrada Manual (para pruebas)
 python main.py
 # Escribe lineas manualmente
 # Presiona Ctrl+D (Linux/Mac) o Ctrl+Z (Windows) para terminar
+
+# Autor
+Por: González Baldomero Leonardo
