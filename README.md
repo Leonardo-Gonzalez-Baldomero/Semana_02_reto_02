@@ -10,7 +10,7 @@ Get-Content entrada.txt | python main.py
 type entrada.txt | python main.py
 
 # Linux/Mac
-python main.py < entrada.txt (ESTA EJECUCIÓN NO ME FUINCIONA PERO PUEDE SERVIR PARA OTROS DISPOSITIVOS)
+python main.py < entrada.txt (ESTA EJECUCIÓN NO ME FUNCIONA PERO PUEDE SERVIR PARA OTROS DISPOSITIVOS)
 # o
 cat entrada.txt | python main.py (PERSONALMENTE UTILIZO ESTE PARA EJECUTARLO EN MI COMPUTADORA)
 Guardar la Salida
