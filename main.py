@@ -21,7 +21,7 @@ def main():
     primera_linea = True
     
     # IMPRIMIR EL ENCABEZADO DE LA SALIDAD
-    print("Ciudad,Temperatura_Celsius,Clasificacion")
+    print("ciudad,temperatura_celsius,clasificacion")
     
     for linea in sys.stdin:
         linea = linea.strip()
