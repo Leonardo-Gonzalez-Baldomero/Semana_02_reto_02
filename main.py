@@ -20,13 +20,13 @@ def main():
     # Leer y descartar encabezado de entrada
     primera_linea = True
     
-    # Imprimir encabezado de salida
-    print("ciudad,temperatura_celsius,clasificacion")
+    # IMPRIMIR EL ENCABEZADO DE LA SALIDAD
+    print("Ciudad,Temperatura_Celsius,Clasificacion")
     
     for linea in sys.stdin:
         linea = linea.strip()
         
-        # Saltar encabezado
+        # CODIGO PARA SALTARSE LAS LINEAS DEL ENCABEZADO
         if primera_linea:
             primera_linea = False
             continue
@@ -35,7 +35,7 @@ def main():
         if not linea:
             continue
         
-        # Separar campos
+        # DIVIDIR LOS 3 CAMPOS
         partes = linea.split(',')
         if len(partes) != 3:
             continue  # Ignorar linea invalida
@@ -44,27 +44,25 @@ def main():
         temp_str = partes[1]
         unidad = partes[2].strip().upper()
         
-        # Validar unidad
+        # VALIDAR SI ES UN C O UN F
         if unidad not in ['C', 'F']:
             continue  # Ignorar
         
-        # Convertir temperatura
+        # CONVERTIR LA TEMPERATURA
         try:
             temp = float(temp_str)
         except ValueError:
             continue  # Ignorar si no es numero
         
-        # Convertir a Celsius
+        # UTILIZAR LA FUNCION PARA CONVERTIR A CELSIUS
         if unidad == 'F':
             celsius = fahrenheit_a_celsius(temp)
         else:
             celsius = temp
         
-        # Clasificar y imprimir
+        # CLASIFICAR LOS DATOS E IMPRIMIRLOS
         clasificacion = clasificar(celsius)
         print(f"{ciudad},{celsius:.1f},{clasificacion}")
 
 if __name__ == "__main__":
     main()
-
-print(codigo_ejemplo)
