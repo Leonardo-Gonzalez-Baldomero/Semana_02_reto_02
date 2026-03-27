@@ -1,10 +1,9 @@
-import sys
-# ESTRUCTURA COMPLETA DEL PROGRAMA
+import sys #Recuerda utilizamos "sys" para interactuar con stdin y stdout.
 
-def fahrenheit_a_celsius(f):
-    return (f - 32) * 5 / 9 #OPERACIÓN PARA CONVERTIR DE FARENHEIT A CELSIUS
+def fahrenheit_a_celsius(f): #FNCIÓN PARA CONVERTIR DE FARENHEIT A CELSIUS.
+    return (f - 32) * 5 / 9 #Operación para la conversión.
 
-def clasificar(celsius): #FUNCIÓN PARA CLASIFICAR EL TIPO DE TEMPERATURA
+def clasificar(celsius): #FUNCIÓN PARA CLASIFICAR EL TIPO DE TEMPERATURA.
     if celsius < 0:
         return "Congelante"
     elif celsius <= 15:
@@ -14,55 +13,52 @@ def clasificar(celsius): #FUNCIÓN PARA CLASIFICAR EL TIPO DE TEMPERATURA
     elif celsius <= 35:
         return "Calido"
     else:
-        return "Extremo"
+        return "Extremo" #Simples categorías para cada nivel de temperatura.
 
-def main():
-    # Leer y descartar encabezado de entrada
-    primera_linea = True
+def main(): #FUNCIÓN PRINCIPAL. 
+    primera_linea = True #Leer y descartar encabezado de entrada.
     
-    # IMPRIMIR EL ENCABEZADO DE LA SALIDAD
-    print("ciudad,temperatura_celsius,clasificacion")
+    print("ciudad,temperatura_celsius,clasificacion") #Imprimir el encabezado de la salida.
     
     for linea in sys.stdin:
-        linea = linea.strip()
+        linea = linea.strip() #Recuerda, borra caracteres iniciales y finales con .strip()".
         
-        # CODIGO PARA SALTARSE LAS LINEAS DEL ENCABEZADO
         if primera_linea:
-            primera_linea = False
+            primera_linea = False #Código para saltarse las líneas del encabezado.
             continue
         
-        # Saltar lineas vacias
+        #Saltar lineas vacías.
         if not linea:
             continue
         
-        # DIVIDIR LOS 3 CAMPOS
-        partes = linea.split(',')
-        if len(partes) != 3:
-            continue  # Ignorar linea invalida
+        #Dividir los 3 campos.
+        partes = linea.split(',') #Lee la línea completa y la divide con comas.
+        if len(partes) != 3: #"len()"" devuelve el número de elementos del "objeto"/"cadena".
+            continue  #Ignorar las líneas invalidas.
         
         ciudad = partes[0]
         temp_str = partes[1]
-        unidad = partes[2].strip().upper()
+        unidad = partes[2].strip().upper() #Converit las minúsculas en mayúsculas y seguimos eliminanto caracteres iniciales y finales.
         
-        # VALIDAR SI ES UN C O UN F
+        #Validar si es un "C" ó un "F".
         if unidad not in ['C', 'F']:
             continue  # Ignorar
         
-        # CONVERTIR LA TEMPERATURA
+        #Si pertenece a "C" ó a "F" convertir la temperatura.
         try:
-            temp = float(temp_str)
+            temp = float(temp_str) #Lo leído lo pasamos a flotante y guardamos en nueva variable para usar.
         except ValueError:
-            continue  # Ignorar si no es numero
+            continue  # Ignorar si no es número.
         
-        # UTILIZAR LA FUNCION PARA CONVERTIR A CELSIUS
+        #Utilizamos la función para convertir a celsius.
         if unidad == 'F':
-            celsius = fahrenheit_a_celsius(temp)
+            celsius = fahrenheit_a_celsius(temp) #Si es F aplicamos la función de conversión.
         else:
-            celsius = temp
+            celsius = temp #Si no, guardamos normal la temperatura.
         
-        # CLASIFICAR LOS DATOS E IMPRIMIRLOS
+        #Clasificamos los datos y los imprimimos.
         clasificacion = clasificar(celsius)
-        print(f"{ciudad},{celsius:.1f},{clasificacion}")
+        print(f"{ciudad},{celsius:.1f},{clasificacion}") #Escribe los grados con un decimal.
 
 if __name__ == "__main__":
     main()
